@@ -51,7 +51,7 @@ pacman -S --needed tevent texinfo thin-provisioning-tools threadweaver tpm2-tss 
 
 pacman -S --needed wireless-regdb wireless_tools woff2 wpa_supplicant wpebackend-fdo x264 x265 xcb-proto xcb-util xcb-util-cursor xcb-util-image xcb-util-keysyms xcb-util-renderutil xcb-util-wm xdg-dbus-proxy xdg-desktop-portal xdg-desktop-portal-kde xdg-user-dirs xdg-utils xdotool xf86-input-elographics xf86-input-evdev xf86-input-libinput xf86-input-void xf86-input-wacom xf86-video-amdgpu xf86-video-ati xf86-video-nouveau xfsprogs xkeyboard-config xl2tpd xorg-fonts-encodings xorg-server xorg-server-common xorg-setxkbmap xorg-xauth xorg-xdpyinfo xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xmessage xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb xorg-xset xorg-xsetroot xorg-xwayland xorgproto xsel xvidcore xxhash xz yad zbar zeromq zimg zip zita-convolver zlib zoxide zram-generator zstd zvbi zxing-cpp
 
-pacman -S lxqt-core pcmanfm-qt qterminal lxqt-arch wayland
+pacman -S lxqt-core pcmanfm-qt qterminal lxqt-arch wayland lxqt-wayland-session
 
 #Instal optional applications
 pacman -S --needed pamac-nosnap dolphin-plugins preload ffmpegthumbs aspell-en libappimage os-prober pacmanlogviewer oxygen ksystemstats haskell-emojis flameshot fish fish-autopair discord meld vivaldi vivaldi-ffmpeg-codecs ine btop gparted starship aic94xx-firmware cdrtools debtap exfat-utils ocs-url oxygen pacdiff-pacman-hook-git
