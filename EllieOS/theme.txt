@@ -1,0 +1,79 @@
+# GRUB2 gfxmenu EllieOS theme
+# Designed for any resolution
+
+# Global Property
+
+title-text: "Welcome to EllieOS"
+title-font: "DejaVu Sans Regular 48"
+message-font: "Terminus 16"
+message-color: "#c2b2d1" 
+message-bg-color: "#bfe1f6"
+desktop-color: "#078ecc"
+desktop-image: "EllieOSbackground.png"
+terminal-font: "Terminus 14"
+terminal-box: "terminal_box_*.png"
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
+
+# Label
++ label {
+  top = 20%
+  height = 35
+  left = 0%
+  width = 100%
+  text = ""
+  align = "center"
+  font = "DejaVu Sans Regular 48"
+  color = "#c2b2d1"
+}
+
+#Boot menu
++ boot_menu {
+  left = 15%
+  #width = 250
+  width = 70%
+  #top = 50%-125
+  #height = 400
+  top = 30%
+  height = 44%
+  item_font = "Terminus 16"
+  item_color = "#c2b2d1"
+  selected_item_color = "#b7edff"
+  item_height = 30
+  item_padding = 5
+  icon_width = 32
+  icon_height = 32
+  item_icon_space = 20
+  item_spacing = 5
+  selected_item_pixmap_style = "select_*.png"
+  menu_pixmap_style = "menu_*.png"
+}
+
+#Progress Bar
++ progress_bar {
+  id = "__timeout__"
+  left = 50%-125
+  top = 70%
+  width = 250
+  height = 20
+  show_text = true
+  font = "Terminus 14"
+  text_color = "#c2b2d1"
+  align = "center"
+  text = "@TIMEOUT_NOTIFICATION_MIDDLE@"
+  bar_style = "progress_bar2_*.png"
+}
+
+#Vbox
++ vbox {
+  left = 50%-125
+  top = 80%
+  width = 250
+  + label { width = 250 height = 20 align = "center" color = "#c2b2d1" font = "Terminus 16" text = "[↵] Boot selected OS" }
+  + label { width = 250 height = 20 align = "center" color = "#c2b2d1" font = "Terminus 16" text = "[↑ and ↓ Key] Navigation" }
+  + label { width = 250 height = 20 align = "center" color = "#c2b2d1" font = "Terminus 16" text = "[E] Edit Selection" }
+  + label { width = 250 height = 20 align = "center" color = "#c2b2d1" font = "Terminus 16" text = "[C] GRUB Commandline" }
+}
