@@ -26,7 +26,7 @@ mount -t btrfs -o subvol=@srv,$o_btrfs LABEL=system /mnt/srv
 mount -t btrfs -o subvol=@log,$o_btrfs LABEL=system /mnt/var/log
 mount -t btrfs -o subvol=@tmp,$o_btrfs LABEL=system /mnt/var/tmp
 mount -t btrfs -o subvol=@cache,$o_btrfs LABEL=system /mnt/var/cache
-mount /dev/sda1 /mnt/boot
-swapon /dev/sda2
+mount /dev/mmcblk0p1 /mnt/boot
+swapon /dev/mmcblk0p2
 btrfs quota enable /mnt
 lsblk
