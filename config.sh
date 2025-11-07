@@ -58,7 +58,7 @@ pacman -S --needed upower --noconfirm
 systemctl enable upower
 confirm "Did upower install?"
 
-#install aura and install asusctl
+#install aura
 pacman -S aura
 confirm "Did aura install?"
 
@@ -70,6 +70,10 @@ echo "Storage=persistent" >> /etc/systemd/journald.conf
 
 #Enable SysRq key
 echo "kernel.sysrq = 1" >> /etc/sysctl.d/99-sysctl.conf
+
+#Enable Network Configuration
+echo "[General]
+EnableNetworkConfiguration=true" >> /etc/iwd/main.conf
 
 #Configure zram
 pacman -S zram-generator --noconfirm
