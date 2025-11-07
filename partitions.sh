@@ -18,9 +18,9 @@ example-function() {
 
 
 #Partition the drive 
-mkfs.fat -F 32 -n EFI /dev/sda1
-mkswap -L swap -f /dev/sda2
-mkfs.btrfs /dev/sda3 --label=system -f
+mkfs.fat -F 32 -n EFI /dev/mmcblk0p1
+mkswap -L swap -f /dev/mmcblk0p2
+mkfs.btrfs /dev/mmcblk0p3 --label=system -f
 o=defaults,x-mount.mkdir
 o_btrfs=$o,defaults,noatime,compress=zstd,commit=120
 mount -t btrfs LABEL=system /mnt 
@@ -55,7 +55,7 @@ mount -t btrfs -o subvol=@tmp,$o_btrfs LABEL=system /mnt/var/tmp
 mount -t btrfs -o subvol=@cache,$o_btrfs LABEL=system /mnt/var/cache
 mkdir /mnt/boot
 mkdir /mnt/boot/efi
-mount /dev/sda1 /mnt/boot
-swapon /dev/sda2
+mount /dev/mmcblk0p1 /mnt/boot
+swapon /dev/mmcblk0p2
 btrfs quota enable /mnt
 lsblk
