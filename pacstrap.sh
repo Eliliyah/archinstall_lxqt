@@ -20,5 +20,6 @@ example-function() {
 pacstrap /mnt base linux linux-firmware linux-atm linux-headers systemd --noconfirm
 pacstrap /mnt nano git linux-lts linux-lts-headers reflector --noconfirm
 pacstrap /mnt base-devel --noconfirm 
+pacstrap /mnt libinput iio-sensor-proxy --noconfirm
 
 
