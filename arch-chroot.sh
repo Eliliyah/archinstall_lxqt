@@ -39,8 +39,3 @@ confirm "Was the system configured successfully?"
 chmod +x grub.sh
 ./grub.sh
 confirm "Was the bootloader installed properly?"
-
-chmod +x blackarch.sh
-./blackarch.sh
-nano /etc/pacman.conf
-confirm "Was Blackarch installed successfully?"
