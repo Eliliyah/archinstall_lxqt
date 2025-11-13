@@ -24,7 +24,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 #set kernel parameters
 sed -i '5,6,7 s/^/#/' /etc/default/grub
 echo "GRUB_DISTRIBUTOR="EllieOS"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"
+GRUB_CMDLINE_LINUX_DEFAULT="nowatchdog nvme_load=YES zswap.enabled=0 splash loglevel=3"
 GRUB_THEME="/usr/share/grub/themes/EllieOS/theme.txt"">> /etc/default/grub
 mv /archinstall_lxqt/EllieOS /usr/share/grub/themes
 grub-mkconfig -o /boot/grub/grub.cfg

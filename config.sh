@@ -62,8 +62,9 @@ confirm "Did upower install?"
 pacman -S aura
 confirm "Did aura install?"
 
-#install extra packages
-pacman -S --needed qterminal fish vivaldi iwd discord aura starship vscodium btop strawberry ttf-daddytime-mono-nerd kde-style-oxygen-qt6 --noconfirm
+for pkg in konsole xterm fish vivaldi iwd element-desktop discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
+  pacman -S --needed --noconfirm "$pkg"
+done
 
 #Configure journal
 echo "Storage=persistent" >> /etc/systemd/journald.conf
@@ -79,14 +80,21 @@ EnableNetworkConfiguration=true" >> /etc/iwd/main.conf
 pacman -S zram-generator --noconfirm
 cp /archinstall/zram-generator.conf /etc/systemd/zram-generator.conf
 
+#Configure sddm
+aura -A archlinux-themes-sddm --noconfirm
+echo "[Theme]
+Current=archlinux-simplyblack">> /etc/sddm.conf
+nano /etc/sddm.conf
+confirm "All good?"
+
 #Configure initramfs for intel
 sed -i '7,52 s/^/#/' /etc/mkinitcpio.conf
 echo "
 COMPRESSION="zstd"
-MODULES=(crc32c intel_agp i915 vmd kms)
-BINARIES=(btrfs)
+MODULES=(crc32c)
+BINARIES=()
 FILES=()
-HOOKS=(base udev autodetect modconf block keyboard keymap consolefont resume filesystems) " >> /etc/mkinitcpio.conf
+HOOKS=(base udev autodetect microcode kms modconf block keyboard keymap consolefont resume plymouth filesystems) " >> /etc/mkinitcpio.conf
 
 #Generate the initramfs
 mkinitcpio -p linux

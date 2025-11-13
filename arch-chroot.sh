@@ -28,9 +28,12 @@ chmod +x keyrings.sh
 ./keyrings.sh
 confirm "Did the keyrings install and mirrors update successfully?"
 
-chmod +x packages.sh
-./packages.sh
-confirm "Did all packages install successfully?"
+#chmod +x packages.sh
+#./packages.sh
+#confirm "Did all packages install successfully?"
+
+pacman -S - < packages.txt
+confirm "Did all packages install?"
 
 chmod +x config.sh
 ./config.sh
