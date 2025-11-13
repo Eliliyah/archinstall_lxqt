@@ -30,10 +30,6 @@ pacman -S --needed networkmanager --noconfirm
 systemctl enable networkmanager
 confirm "Did networkmanager install?"
 
-pacman -S --needed sddm --noconfirm
-systemctl enable sddm
-confirm "Did sddm install?"
-
 pacman -S --needed lm_sensors --noconfirm
 systemctl enable lm_sensors
 confirm "Did lmsensors install?"
@@ -58,9 +54,20 @@ pacman -S --needed upower --noconfirm
 systemctl enable upower
 confirm "Did upower install?"
 
+pacman -S --needed sddm --noconfirm
+systemctl enable sddm
+confirm "Did sddm install?"
+
 #install aura
 pacman -S aura
 confirm "Did aura install?"
+
+#Configure sddm
+aura -A archlinux-themes-sddm --noconfirm
+echo "[Theme]
+Current=archlinux-simplyblack">> /etc/sddm.conf
+nano /etc/sddm.conf
+confirm "All good?"
 
 for pkg in konsole xterm fish vivaldi iwd element-desktop discord aura starship vscodium btop dolphin strawberry libreoffice-fresh ttf-daddytime-mono-nerd kde-style-oxygen-qt6; do
   pacman -S --needed --noconfirm "$pkg"
@@ -79,13 +86,6 @@ EnableNetworkConfiguration=true" >> /etc/iwd/main.conf
 #Configure zram
 pacman -S zram-generator --noconfirm
 cp /archinstall/zram-generator.conf /etc/systemd/zram-generator.conf
-
-#Configure sddm
-aura -A archlinux-themes-sddm --noconfirm
-echo "[Theme]
-Current=archlinux-simplyblack">> /etc/sddm.conf
-nano /etc/sddm.conf
-confirm "All good?"
 
 #Configure initramfs for intel
 sed -i '7,52 s/^/#/' /etc/mkinitcpio.conf
