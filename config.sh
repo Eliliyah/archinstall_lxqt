@@ -85,7 +85,7 @@ EnableNetworkConfiguration=true" >> /etc/iwd/main.conf
 
 #Configure zram
 pacman -S zram-generator --noconfirm
-cp /archinstall/zram-generator.conf /etc/systemd/zram-generator.conf
+cp /archinstall_lxqt/zram-generator.conf /etc/systemd/zram-generator.conf
 
 #Configure initramfs for intel
 sed -i '7,52 s/^/#/' /etc/mkinitcpio.conf
